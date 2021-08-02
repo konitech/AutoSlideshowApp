@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val PERMISSIONS_REQUEST_CODE = 100
 
+    // ToDo:cursorをすべてのボタンで取り回せるようにここで宣言しているが、もっといい方法はあるのか？
     private var cursor: Cursor? = null
 
     private var mTimer: Timer? = null
@@ -59,11 +60,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        when (requestCode) {
-            PERMISSIONS_REQUEST_CODE ->
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    getContentsInfo()
-                }
+        if (requestCode == PERMISSIONS_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getContentsInfo()
+            } else {
+                // ToDo:権限を許可しない場合は、どのように実装するのがよいのか？とりあえずボタンを非表示して操作できないようにしてみる
+                forward_button.visibility = View.INVISIBLE
+                back_button.visibility = View.INVISIBLE
+                play_button.visibility = View.INVISIBLE
+            }
         }
     }
 
