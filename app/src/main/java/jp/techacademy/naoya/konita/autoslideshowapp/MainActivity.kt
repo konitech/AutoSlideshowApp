@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         image_view.setImageURI(imageUri)
                     }
                 }
-            }, 3000, 3000)
+            }, 2000, 2000)
         } else {
             Log.d("PIC_DEBUG", "停止ボタンが押されました")
             play_button.text = "再生"
