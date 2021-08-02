@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val PERMISSIONS_REQUEST_CODE = 100
 
-    // ToDo:cursorをすべてのボタンで取り回せるようにここで宣言しているが、もっといい方法はあるのか？
+    // cursorをすべてのボタンで取り回せるようにここで宣言しているが、もっといい方法はあるのか？→これでOK
     private var cursor: Cursor? = null
 
     private var mTimer: Timer? = null
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getContentsInfo()
             } else {
-                // ToDo:権限を許可しない場合は、どのように実装するのがよいのか？とりあえずボタンを非表示して操作できないようにしてみる
+                // 権限を許可しない場合は、どのように実装するのがよいのか？とりあえずボタンを非表示して操作できないようにしてみる→ボタンを押したときにアラートを上げる方がいい
                 forward_button.visibility = View.INVISIBLE
                 back_button.visibility = View.INVISIBLE
                 play_button.visibility = View.INVISIBLE
