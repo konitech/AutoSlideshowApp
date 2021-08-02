@@ -64,10 +64,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getContentsInfo()
             } else {
-                // 権限を許可しない場合は、どのように実装するのがよいのか？とりあえずボタンを非表示して操作できないようにしてみる→ボタンを押したときにアラートを上げる方がいい
-                forward_button.visibility = View.INVISIBLE
-                back_button.visibility = View.INVISIBLE
-                play_button.visibility = View.INVISIBLE
+                // 権限を許可しない場合は、どのように実装するのがよいのか？とりあえずボタンを非表示して操作できないようにしてみる→ボタンを押したときにアラートを上げるかグレーアウトする方がいい
+                // forward_button.visibility = View.INVISIBLE
+                // back_button.visibility = View.INVISIBLE
+                // play_button.visibility = View.INVISIBLE
+                forward_button.isEnabled= false
+                back_button.isEnabled= false
+                play_button.isEnabled= false
             }
         }
     }
